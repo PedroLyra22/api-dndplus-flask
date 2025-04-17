@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, jsonify
+from src.repositories import RacaRepository
 
 app = Flask(__name__)
 
@@ -6,13 +7,13 @@ app = Flask(__name__)
 
 @app.route("/racas", methods=["GET"])
 def get_all_racas():
-    racas = UserRepository.find_by_id(user_id)
+    racas = RacaRepository.find_all()
+    return racas
 
-    if user:
-        return jsonify({"id": user.id, "name": user.name, "email": user.email}), 200
-    return jsonify({"error": "User not found"}), 404
-
-
+@app.route("/racas_by_name", methods=["GET"])
+def get_all_racas_by_name():
+    racas = RacaRepository.find_all_names()
+    return racas
 
 
 if __name__ == '__main__':
