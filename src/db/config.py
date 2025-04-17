@@ -4,7 +4,7 @@ DB_CONFIG = {
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database": "user_system",
+    "database": "dndplus",
 }
 
 def get_db_connection():
